@@ -4,10 +4,10 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env     # SECRET_KEY, SMTP_USER, SMTP_PASSWORD 채우기
-flask --app app run --port 5000
+flask --app app run
 ```
+- 포트는 `.env`의 `FLASK_RUN_PORT` (프론트 `.env`의 `API_PROXY_TARGET`과 맞추기)
 - `.env` 값이 비어 있으면 서버가 뜨지 않음. 발송용 Gmail은 2단계 인증 후 앱 비밀번호를 발급받아 `SMTP_PASSWORD`에 넣음
-- macOS는 5000번 포트를 AirPlay 수신이 쓰고 있어서 `--port 5001` 로 띄우고, 프론트는 `API_PROXY_TARGET=http://localhost:5001 npm run dev` 로 실행
 - 프론트 `.env` 에서 `VITE_USE_MOCK=false` 여야 이 서버를 호출함
 - SQLite DB와 업로드 사진은 `instance/` 아래에 생김 (git 제외)
 - 목업 옷 6벌로 시작하려면 처음 실행 전에 `cp -R seed instance` (`seed/`는 목업 데이터만 담은 DB와 사진)
