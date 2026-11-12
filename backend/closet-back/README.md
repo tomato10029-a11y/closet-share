@@ -10,6 +10,7 @@ flask --app app run --port 5000
 - macOS는 5000번 포트를 AirPlay 수신이 쓰고 있어서 `--port 5001` 로 띄우고, 프론트는 `API_PROXY_TARGET=http://localhost:5001 npm run dev` 로 실행
 - 프론트 `.env` 에서 `VITE_USE_MOCK=false` 여야 이 서버를 호출함
 - SQLite DB와 업로드 사진은 `instance/` 아래에 생김 (git 제외)
+- 목업 옷 6벌로 시작하려면 처음 실행 전에 `cp -R seed instance` (`seed/`는 목업 데이터만 담은 DB와 사진)
 - 로그인: @knu.ac.kr 주소로 4자리 코드를 메일 발송, 확인되면 세션 쿠키로 로그인
   - 코드는 10분 유효, 5번 틀리면 다시 받아야 함, 같은 주소로는 60초에 한 번만 발송
 - 엔드포인트 (auth와 사진 외에는 로그인 필요)
