@@ -1,6 +1,6 @@
 # 동네옷장 프론트엔드 (React + Vite)
 ```
-npm install
+npm install              # npm 설치
 cp .env.example .env     # VITE_USE_MOCK=true 면 샘플 데이터로 동작
 npm run dev              # http://localhost:5173
 ```
