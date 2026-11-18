@@ -10,3 +10,4 @@ npm run dev              # http://localhost:5173
   - POST /api/auth/send-code, /api/auth/verify
   - GET /api/items, GET /api/items/<id>, POST /api/items (multipart: data(JSON), photos)
   - POST /api/rentals, GET /api/rentals/current, PATCH /api/rentals/<id>/handover|return|refund
+- 별점·후기·대여 횟수(무사고)는 `src/mock/trust.js`의 샘플 데이터이고 백엔드와는 연결되어 있지 않음. `api/client.js`의 `withTrust`가 목록·상세 응답에 붙임

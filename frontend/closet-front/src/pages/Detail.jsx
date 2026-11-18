@@ -1,5 +1,5 @@
 import {useEffect,useState} from 'react';import {useNavigate,useParams} from 'react-router-dom';
-import {api} from '../api/client.js';import {COMP,won} from '../mock/data.js';import {Thumb} from '../components.jsx';
+import {api} from '../api/client.js';import {COMP,won} from '../mock/data.js';import {Thumb,TrustSection} from '../components.jsx';
 export default function Detail(){
   const {id}=useParams();const nav=useNavigate();const [it,setIt]=useState(null);const [from,setFrom]=useState('');const [to,setTo]=useState('');const [open,setOpen]=useState(false);const [busy,setBusy]=useState(false);
   useEffect(()=>{api.getItem(id).then(setIt);},[id]);
@@ -12,6 +12,7 @@ export default function Detail(){
       <span className="badge">{it.category}</span><h1 style={{marginTop:6}}>{it.name}</h1>
       <p className="lead">사이즈 {it.size} · {it.cond} · {it.owner}</p>
       <div className="price"><div className="card"><b>{won(it.rent)}</b><span>대여료(1~3일)</span></div><div className="card"><b>{won(it.deposit)}</b><span>보증금(반납 시 환불)</span></div></div>
+      {it.trust&&<TrustSection t={it.trust}/>}
       <h2>보상 기준표</h2>
       {COMP.map(([t,d])=><details key={t}><summary>{t}</summary><p>{d}</p></details>)}
       <h2>대여 날짜</h2>
